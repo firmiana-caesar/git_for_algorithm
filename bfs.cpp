@@ -154,4 +154,26 @@ int main()
 	return 0;
 }
 
-//解释：参考数据结构p408，算法竞赛入门经典p165，
+//解释：参考数据结构p408，算法竞赛入门经典p165
+//bfs算法一般用于求最短路径（迷宫问题），使用队列存储每一个可以遍历得到的状态
+//bfs一般的伪代码如下：
+//bfs(v)
+//{
+//	Label vertex v as reached.
+//	Initialize Q to be a queue with only v in it.
+//	while(Q is no empty)
+//	{
+//		Delete a vertex w from the queue.
+//		Let u be a vertex(if any) adjacent from w.
+//		while(u != NULL)
+//		{
+//			if (u has not been labeled)
+//			{
+//				Add u to the queue.
+//				Label u as reached.
+//			}
+//		u = next vertext that is adjacent from w.
+//		}
+//	}
+//}
+//原先的写法存在的问题是接近于使用了dfs，但是这种只能遍历一次路径，并不能知道所求的最短路径
