@@ -90,24 +90,26 @@ int bfs(){
 		for (int j = 0; j < M; j ++) d[i][j] = INF;
 	//将起点加入队列。并把这一地点的距离设为0
 	que.push(P(sx, sy));
-	d[sx][sy] = 0;
+	d[sx][sy] = 0;//initialize a queue with only the start point in it
 	
-	/不断循环直到队列长度为0
+	//不断循环直到队列长度为0
 	while (que.size()){
 		//从队列的最前端取出元素
-		P p = que.front();que.pop();
+		P p = que.front();que.pop();//delete the first element from the queue
 		//如果取出的状态已经是终点，则搜索结束
 		if (p.first == gx && p.second == gy) break;
 
 	//四个方向的循环
+	//let the next element to be the the adjacent from w
 	for (int i = 0; i < 4; i++){
 		//移动之后的位置记为（nx，ny）
 		int nx = p.first + dx[i], ny = p.second + dy[i];
 
 	//判断是否可以移动以及是否已经访问过
+	//if u has not been labeld
 	if (0 <= nx && nx < N && 0 <= ny && ny <= M && maze[nx][ny] != '#' && d[nx][ny] == INF){
 		//可以移动的话，加入队列，并且到该位置的距离确定为到p的距离
-		que.push(P(nx, ny));
+		que.push(P(nx, ny));//add to the queue
 		d[nx][ny] = d[p.first][p.second] + 1;
 		}
 	}
