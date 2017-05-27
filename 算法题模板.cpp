@@ -7,11 +7,12 @@
 /////////////////////////////////////////////////////////////////
 
 #include <iostream>
-using namesapce std;
+using namespace std;
 
 int main()
 {	
 	//input your code from here
+	cout << "hello world!";
 	return 0;
 }
 
